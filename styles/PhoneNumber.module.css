@@ -1,0 +1,155 @@
+.phoneNumber {
+    width: 100%;
+    padding: 2rem;
+    box-shadow: rgb(0 0 0 / 10%) 0px 0px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 1rem;
+    transition: 0.2s ease-in-out;
+  }
+  
+  .question {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  
+  .phoneContainer {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 12px;
+    border: 1px solid var(--grey);
+    width: 30%;
+    height: 3.5rem;
+  }
+
+  .phoneContainer_left {
+    background-color: var(--grey50);
+    height: 100%;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s ease-in-out;
+
+  }
+
+  .phoneContainer_left:hover {
+    background-color: var(--grey60);
+  }
+  
+  .dropdown {
+    position: relative;
+    flex-grow: 1;
+  }
+  
+  .dropdownToggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+    cursor: pointer;
+  }
+
+  .arrowDown {
+    transition: 0.2s ease-in-out;
+  }
+
+  .arrowUp {
+    transform: rotate(180deg);
+    transition: 0.2s ease-in-out;
+  }
+  
+  .dropdownMenu {
+    position: absolute;
+    top: 125%;
+    left: 0;
+    width: 100%;
+    max-height: 20rem;
+    overflow-y: scroll;
+    width: 18rem;
+    border: 1px solid var(--grey);
+    border-radius: 12px;
+    background-color: white;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    z-index: 999999;
+    padding: 0.25rem;
+  }
+  .dropdownMenu::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  .dropdownMenu::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  .dropdownMenu::-webkit-scrollbar-thumb {
+    background-color: var(--grey);
+    border-radius: 12px;
+  }
+
+  .dropdownToggle {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+  }
+  
+  .dropdownItem {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.25rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    /* border-bottom: 1px solid var(--grey); */
+    transition: 0.2s ease-in-out;
+    border-radius: 6px;
+
+  }
+
+  .dropdownItem:hover {
+    background-color: var(--grey50);
+    transition: 0.2s ease-in-out;
+  }
+  
+  
+  .dropdownItem span {
+    margin-right: 1rem;
+  }
+  
+  .phoneNumber:hover .dropdownMenu {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
+
+
+  .phoneContainer_right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap:0.25rem;
+    padding: 0.5rem;
+    width: 100%;
+  }
+
+  .phoneContainer_right_prefix {
+    font-size: 1rem;
+    color: var(--grey);
+  }
+
+  .phoneContainer_right_input {
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    font-weight: 500;
+    width: 100%;
+  }

@@ -1,0 +1,27 @@
+.button_wrapper {
+    width: 100%;
+    background-color: var(--gradient-blue);
+    box-shadow: rgb(0 0 0 / 10%) 0px 0px 10px;
+    cursor: pointer;
+}
+
+.button {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    background-color: var(--blue);
+    border: 1px solid transparent;
+
+}
+
+.button:hover {
+    box-shadow: rgb(0 0 0 / 20%) 0px 0px 15px;
+    cursor: pointer;
+
+}
+
+.button_text {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--white);
+}

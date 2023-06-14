@@ -1,0 +1,36 @@
+.button_wrapper {
+    width: 100%;
+
+}
+
+.button {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    border: 1px solid var(--blue);
+    background-color: var(--white);
+    transition: 0.2s ease-in-out;
+    
+
+}
+
+.button:hover {
+    box-shadow: rgb(0 0 0 / 20%) 0px 0px 15px;
+    cursor: pointer;
+    background-color: var(--light-blue);    
+    transition: 0.2s ease-in-out;
+
+
+}
+
+.button:hover .button_text {
+    color: var(--white);
+}
+
+.button_text {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--black);
+    transition: 0.2s ease-in-out;
+
+}

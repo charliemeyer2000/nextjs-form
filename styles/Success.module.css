@@ -1,0 +1,38 @@
+.success {
+    display:grid;
+    place-content: center;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: 600;
+    text-align: center;
+    align-self: center;
+}
+
+.title_fancy {
+    background: linear-gradient(96.56deg, var(--light-blue) 0%, var(--blue) 92.95%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% auto;
+    animation: animateText 3s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite;
+}
+@keyframes animateText {
+    0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+}
+.description {
+    font-size: 1.5rem;
+    font-weight:400;
+    text-align:left;
+}
