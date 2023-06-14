@@ -1,11 +1,11 @@
 {
-  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/api/hello": "pages/api/hello.js",
-  "/_error": "pages/_error.js",
-  "/form/Intro": "pages/form/Intro.js",
-  "/form/Confirmation": "pages/form/Confirmation.js",
-  "/form/Success": "pages/form/Success.js",
-  "/form/Questions": "pages/form/Questions.js",
-  "/store": "pages/store.js"
+  "/form/Confirmation": "pages/form/Confirmation.html",
+  "/form/Intro": "pages/form/Intro.html",
+  "/form/Success": "pages/form/Success.html",
+  "/form/Questions": "pages/form/Questions.html",
+  "/_app": "pages/_app.js",
+  "/404": "pages/404.html"
 }

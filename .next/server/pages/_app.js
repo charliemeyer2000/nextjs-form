@@ -4,7 +4,7 @@ exports.id = 888;
 exports.ids = [888];
 exports.modules = {
 
-/***/ 433:
+/***/ 14:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -43,8 +43,21 @@ var helpers = __webpack_require__(182);
 var jsx_runtime = __webpack_require__(893);
 // EXTERNAL MODULE: ./styles/globals.css
 var globals = __webpack_require__(764);
-// EXTERNAL MODULE: ./pages/store.js
-var store = __webpack_require__(50);
+// EXTERNAL MODULE: external "@reduxjs/toolkit"
+var toolkit_ = __webpack_require__(184);
+// EXTERNAL MODULE: ./slices/formSlice.js
+var formSlice = __webpack_require__(489);
+;// CONCATENATED MODULE: ./store.js
+
+// imports
+
+const store = (0,toolkit_.configureStore)({
+    reducer: {
+        form: formSlice/* default */.ZP
+    }
+});
+/* harmony default export */ const store_0 = (store);
+
 // EXTERNAL MODULE: external "react-redux"
 var external_react_redux_ = __webpack_require__(22);
 ;// CONCATENATED MODULE: ./pages/_app.js
@@ -54,7 +67,7 @@ var external_react_redux_ = __webpack_require__(22);
 
 function App({ Component , pageProps  }) {
     return /*#__PURE__*/ jsx_runtime.jsx(external_react_redux_.Provider, {
-        store: store["default"],
+        store: store_0,
         children: /*#__PURE__*/ jsx_runtime.jsx(Component, {
             ...pageProps
         })
@@ -93,30 +106,6 @@ function App({ Component , pageProps  }) {
         
         
     
-
-/***/ }),
-
-/***/ 50:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(184);
-/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _slices_formSlice__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(489);
-
-// imports
-
-const store = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__.configureStore)({
-    reducer: {
-        form: _slices_formSlice__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .ZP
-    }
-});
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (store);
-
 
 /***/ }),
 
@@ -174,7 +163,7 @@ module.exports = require("react-redux");
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [722,893,489], () => (__webpack_exec__(433)));
+var __webpack_exports__ = __webpack_require__.X(0, [812,489], () => (__webpack_exec__(14)));
 module.exports = __webpack_exports__;
 
 })();

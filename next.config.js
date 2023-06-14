@@ -9,6 +9,12 @@ const nextConfig = {
         destination: "/form/Intro",
         permanent: true,
       },
+      // route the user to /form/Intro when they load into the site
+      {
+        source: "/",
+        destination: "/form/Intro",
+        permanent: true,
+      }
     ];
   }
 }
