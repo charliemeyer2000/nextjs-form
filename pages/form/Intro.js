@@ -5,15 +5,14 @@ import PhoneNumber from "@/components/PhoneNumber/PhoneNumber";
 import ColoredButton from "@/components/ColoredButton/ColoredButton";
 // mui
 import { Alert } from "@mui/material";
+import { useSearchParams } from "next/navigation";
+
 // redux
 import { useDispatch, useSelector } from "react-redux";
 import {
-  selectName,
-  selectPhone,
-  selectEmail,
-  setName,
-  setPhone,
-  setEmail,
+  selectDailySpendingSum,
+  setDailySpendingSum,
+  setDiscordId,
 } from "@/slices/formSlice";
 // react
 import { useState } from "react";
@@ -21,111 +20,55 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 
 export default function Intro() {
-  const name = useSelector(selectName);
-  const phone = useSelector(selectPhone);
-  const email = useSelector(selectEmail);
+  const dailySpendingSum = useSelector(selectDailySpendingSum);
   const [showErrorPopup, setShowErrorPopup] = useState("");
 
   const dispatch = useDispatch();
   const router = useRouter();
 
+  // handling passing in the discordId
+  const params = useSearchParams();
+  const discordId = params.get("discordId");
+  if (typeof window !== "undefined") {
+    const storedDiscordId = localStorage.getItem("discordId");
+    if (storedDiscordId !== discordId && discordId !== null) {
+      localStorage.setItem("discordId", discordId);
+      dispatch(setDiscordId(discordId));
+    } else if (storedDiscordId !== null) {
+      // If discordId from params is null, use the storedDiscordId
+      dispatch(setDiscordId(storedDiscordId));
+    }
+  }
+
   const handleNext = () => {
     // first check if the name is not empty
-    if (name === "") {
-      setShowErrorPopup("Please enter your name.");
+    if (dailySpendingSum === "") {
+      setShowErrorPopup("Please enter a number for your daily spending.");
       // wait 3 seconds and then remove the error popup
       setTimeout(() => {
         setShowErrorPopup("");
       }, 3000);
       return;
     }
-
-    // next check if the phone number is not empty
-    if (phone === "") {
-      setShowErrorPopup("Please enter your phone number.");
-      // wait 3 seconds and then remove the error popup
-      setTimeout(() => {
-        setShowErrorPopup("");
-      }, 3000);
-      return;
-    }
-
-    // next check if the phone number is valid
-    if (phone.length !== 10) {
-      setShowErrorPopup("Please enter a valid phone number.");
-      // wait 3 seconds and then remove the error popup
-      setTimeout(() => {
-        setShowErrorPopup("");
-      }, 3000);
-      return;
-    }
-
-    // next check if the email is not empty
-    if (email === "") {
-      setShowErrorPopup("Please enter your email.");
-      // wait 3 seconds and then remove the error popup
-      setTimeout(() => {
-        setShowErrorPopup("");
-      }, 3000);
-      return;
-    }
-
-    // next check if the email is valid
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      setShowErrorPopup("Please enter a valid email.");
-      // wait 3 seconds and then remove the error popup
-      setTimeout(() => {
-        setShowErrorPopup("");
-      }, 3000);
-      return;
-    }
-
     // if all of the above checks pass, then we can move on to the next page
     router.push("/form/Questions");
-    
   };
-
   return (
     <div className={styles.intro}>
       <div className={styles.header}>
-        <h1 className={styles.intro_title}>Form Demo</h1>
+        <h1 className={styles.intro_title}>MoniFlow Daily Form</h1>
         <p className={styles.intro_description}>
-          This is a demo of a form built with Next.js and CSS modules. Thank you
-          for visiting. I hope you enjoy this. Please note that I have never
-          built using Next.js before, nor have i used quite literally any of the
-          tools mentioned. Also admittedly i used redux instead of xcode, since
-          redux (imo) is better.
-        </p>
-        <p className={styles.intro_description}>
-          I am traditionally a React native developer, using regular css, react,
-          and have a general jack-of-all-trades knowledge for most deployment
-          and application management stuff. You can see the stuff i've built on
-          my github, personal website, etc. Nextjs is probably better, but I
-          haven't had the time to learn it yet.
+          Fill out this form to track your daily spending! This will
+          auto-populate in your own sheet, which you can use to track your
+          spending!
         </p>
       </div>
       <div className={styles.forms}>
         <SmallTextField
-          question="What is your name?"
-          label="First and last name."
-          value={name}
-          onChange={(e) => dispatch(setName(e.target.value))}
-          isRequired={true}
-        />
-        <PhoneNumber
-          value={phone}
-          onChange={(e) => {
-            dispatch(setPhone(e.target.value));
-          }}
-        />
-        <SmallTextField
-          question="What is your email?"
-          label="Email address."
-          value={email}
-          onChange={(e) => {
-            dispatch(setEmail(e.target.value));
-          }}
+          question="How much did you spend today?"
+          label="This should be a number, ex: 12.34"
+          value={dailySpendingSum}
+          onChange={(value) => dispatch(setDailySpendingSum(value))}
           isRequired={true}
         />
         <ColoredButton text="Next" onClick={handleNext} />

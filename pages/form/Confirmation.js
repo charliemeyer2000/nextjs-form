@@ -2,13 +2,8 @@ import styles from "@/styles/Confirmation.module.css";
 // redux
 import { useSelector, useDispatch } from "react-redux";
 import {
-  selectName,
-  selectPhone,
-  selectEmail,
-  selectQuestion1,
-  selectQuestion2,
-  selectQuestion3,
-  selectQuestion4,
+  selectDailySpendingSum,
+  selectFormQuestions,
 } from "@/slices/formSlice";
 // components
 import BoringButton from "@/components/BoringButton/BoringButton";
@@ -17,13 +12,8 @@ import ColoredButton from "@/components/ColoredButton/ColoredButton";
 import { useRouter } from "next/router";
 
 export default function Confirmation() {
-  const name = useSelector(selectName);
-  const phone = useSelector(selectPhone);
-  const email = useSelector(selectEmail);
-  const question1 = useSelector(selectQuestion1);
-  const question2 = useSelector(selectQuestion2);
-  const question3 = useSelector(selectQuestion3);
-  const question4 = useSelector(selectQuestion4);
+  const dailySpending = useSelector(selectDailySpendingSum);
+  const formQuestions = useSelector(selectFormQuestions);
   const dispatch = useDispatch();
   const router = useRouter();
 
@@ -32,38 +22,25 @@ export default function Confirmation() {
       <div className={styles.header}>
         <h1 className={styles.title}>Please review your answers here. </h1>
         <p className={styles.description}>
-          If you need to make any changes, please click the back button at the bottom. If you are satisfied with your responses, please click "Confirm" to submit your answers.
+          If you need to make any changes, please click the back button at the
+          bottom. If you are satisfied with your responses, please click
+          "Confirm" to submit your answers.
         </p>
       </div>
       <div className={styles.answers}>
         <div className={styles.answer}>
-          <h2 className={styles.question}>What is your name?</h2>
-          <p className={styles.response}>{name}</p>
+          <h2 className={styles.question}>How much did you spend today?</h2>
+          <p className={styles.response}>{dailySpending}</p>
         </div>
-        <div className={styles.answer}>
-          <h2 className={styles.question}>What is your phone number?</h2>
-          <p className={styles.response}>{phone}</p>
-        </div>
-        <div className={styles.answer}>
-          <h2 className={styles.question}>What is your email address?</h2>
-          <p className={styles.response}>{email}</p>
-        </div>
-        <div className={styles.answer}>
-          <h2 className={styles.question}>What is your favorite color?</h2>
-          <p className={styles.response}>{question1}</p>
-        </div>
-        <div className={styles.answer}>
-          <h2 className={styles.question}>What is your favorite food?</h2>
-          <p className={styles.response}>{question2}</p>
-        </div>
-        <div className={styles.answer}>
-          <h2 className={styles.question}>What is your favorite animal?</h2>
-          <p className={styles.response}>{question3}</p>
-        </div>
-        <div className={styles.answer}>
-          <h2 className={styles.question}>What is your favorite movie?</h2>
-          <p className={styles.response}>{question4}</p>
-        </div>
+        {/* map through the key-value pairs in formQuestions */}
+        {Object.entries(formQuestions).map(([key, value]) => (
+          <div className={styles.answer} key={key}>
+            <h2
+              className={styles.question}
+            >{`How much did you spend on ${key}?`}</h2>
+            <p className={styles.response}>{value}</p>
+          </div>
+        ))}
       </div>
       <div className={styles.buttons}>
         <BoringButton

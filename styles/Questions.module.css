@@ -70,3 +70,9 @@
         transform: translateX(100%);
     }
 }
+
+@media only screen and (width < 786px ) {
+    .questions {
+        padding: 4rem 5vw;
+    }
+}

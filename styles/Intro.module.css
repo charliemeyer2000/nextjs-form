@@ -63,3 +63,9 @@
     }
 }
 
+@media only screen and (width < 786px ) {
+    .intro {
+        padding: 4rem 5vw;
+    }
+}
+

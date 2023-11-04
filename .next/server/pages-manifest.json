@@ -1,11 +1,7 @@
 {
+  "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/api/hello": "pages/api/hello.js",
-  "/form/Confirmation": "pages/form/Confirmation.html",
-  "/form/Intro": "pages/form/Intro.html",
-  "/form/Success": "pages/form/Success.html",
-  "/form/Questions": "pages/form/Questions.html",
-  "/_app": "pages/_app.js",
-  "/404": "pages/404.html"
+  "/form/Intro": "pages/form/Intro.js",
+  "/form/Questions": "pages/form/Questions.js"
 }

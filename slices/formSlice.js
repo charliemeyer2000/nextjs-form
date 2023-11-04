@@ -4,59 +4,42 @@ import { useSelector } from "react-redux";
 const formSlice = createSlice({
   name: "form",
   initialState: {
-    name: "",
-    phone: "",
-    email: "",
-    question1: "",
-    question2: "",
-    question3: "",
-    question4: "",
+    dailySpendingSum: 0,
+    discordId: "",
+    formQuestions: {},
   },
   reducers: {
-    setName: (state, action) => {
-      state.name = action.payload;
+    setDailySpendingSum: (state, action) => {
+      state.dailySpendingSum = action.payload;
     },
-    setPhone: (state, action) => {
-      state.phone = action.payload;
+    setDiscordId: (state, action) => {
+      state.discordId = action.payload;
     },
-    setEmail: (state, action) => {
-      state.email = action.payload;
+    setFormQuestions: (state, action) => {
+      state.formQuestions = action.payload;
     },
-    setQuestion1: (state, action) => {
-      state.question1 = action.payload;
+    setKVPairInFormQuestions: (state, action) => {
+      state.formQuestions[action.payload.key] = action.payload.value;
     },
-    setQuestion2: (state, action) => {
-      state.question2 = action.payload;
-    },
-    setQuestion3: (state, action) => {
-      state.question3 = action.payload;
-    },
-    setQuestion4: (state, action) => {
-      state.question4 = action.payload;
+    removeKVPairInFormQuestions: (state, action) => {
+      delete state.formQuestions[action.payload.key];
     },
   },
 });
 
 // selectors
-export const selectName = (state) => state.form.name;
-export const selectPhone = (state) => state.form.phone;
-export const selectEmail = (state) => state.form.email;
-export const selectQuestion1 = (state) => state.form.question1;
-export const selectQuestion2 = (state) => state.form.question2;
-export const selectQuestion3 = (state) => state.form.question3;
-export const selectQuestion4 = (state) => state.form.question4;
+export const selectDailySpendingSum = (state) => state.form.dailySpendingSum;
+export const selectDiscordId = (state) => state.form.discordId;
+export const selectFormQuestions = (state) => state.form.formQuestions;
 
 // actions
 export const {
-  setName,
-  setPhone,
-  setEmail,
-  setQuestion1,
-  setQuestion2,
-  setQuestion3,
-  setQuestion4,
+  setDailySpendingSum,
+  setDiscordId,
+  setFormQuestions,
+  setKVPairInFormQuestions,
+  removeKVPairInFormQuestions,
 } = formSlice.actions;
 
 // reducer
-
 export default formSlice.reducer;
