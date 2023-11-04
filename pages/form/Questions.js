@@ -3,7 +3,7 @@ import styles from "../../styles/Questions.module.css";
 import SmallTextField from "../../components/SmallTextField/SmallTextField";
 import ColoredButton from "@/components/ColoredButton/ColoredButton";
 import BoringButton from "@/components/BoringButton/BoringButton";
-import DropDown from "../../components/DropDown/DropDown";
+import DropDown from "@/components/DropDown/DropDown";
 // redux
 import {
   removeKVPairInFormQuestions,
