@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "./", // Specify the correct base URL
     "paths": {
-      "@/*": ["./*"],
-      "@/components/*": ["./components/*"]
+      "@/*": ["*"] // Map '@/*' to all files and folders under the base URL
     }
-  }
+  },
+  "include": ["./**/*"] // Make sure to include all files under the base URL
 }
