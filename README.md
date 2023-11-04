@@ -1,6 +1,6 @@
 # My First NextJS application
 
-Hi. This is my first nextjs application. Not my usual thing, but ceretianly a cool platform. Vercel is sweet! [Here's](https://nextjs-form-rbyq-3mvfqdl4j-charliemeyer2000.vercel.app/) the link to the deployment. It is a simple form. I wrote this in like 3 hours after finishing my 9-5 job while simultaneously learning nextjs, so take it with a grain of salt pls. Guacamole.
+Hi. This is my first nextjs application. Not my usual thing, but ceretianly a cool platform. Vercel is sweet! [Here's](https://nextjs-form-rbyq-3mvfqdl4j-charliemeyer2000.vercel.app/) the link to the deployment. It is a simple form. I wrote this in like 3 hours after finishing my 9-5 job while simultaneously learning nextjs, so take it with a grain of salt pls. 
 
 ## Features
 
