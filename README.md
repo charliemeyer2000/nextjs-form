@@ -1,38 +1,25 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# My First NextJS application
 
-## Getting Started
+Hi. This is my first nextjs application. Not my usual thing, but ceretianly a cool platform. Vercel is sweet! [Here's](https://nextjs-form-rbyq-3mvfqdl4j-charliemeyer2000.vercel.app/) the link to the deployment. It is a simple form. I wrote this in like 3 hours after finishing my 9-5 job while simultaneously learning nextjs, so take it with a grain of salt pls
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+- Jest testing
+- Redux
+- it looks pretty, i think?
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Things Learned
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+- nextjs cool. They have tons of great features and integrate well, and their CI/Cd pipeline is SO easy especialyl in comparison to my custom scripts to build and deploy docker images using GCR. 
+- Great documentation and tutorials, also bonus points for MDX. 
+- CSS modules are a big w. Having written like 20k lines of css in my life using naming conventions to avoid overlapping css classnames, modules are a big w
+- tailwind? I might try tailwind, just to see what it's all about.
+- no more ugly imports. The '@/pages/form/Intro' and stuff like that made imports much easier. Gone are the days of '../../../../../assets/image.png.'
+- beware of vendor lock-in. Nextjs cool, but i'm worried that they lock you in super quickly and once you start using their service and build larger-scale applications and stuff you will be charged abhorrent amounts of money.
+- lack of configuration: nextjs cool because they make deployment and building and all that stuff super easy, but at the same time taht strips a lot of configuration that you might want to do. Pluses and deltas. 
+- edge functions seem kinda sick ig
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## For the future
+- I think i might use next for the future for a blog or something, or maybe for personal website. Pretty cool and simple. However, since i use personal website for my email, idk if that's possible.
+- I think next is great for static sites and stuff with minimal api calls or communication with a backend/other services. 
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
