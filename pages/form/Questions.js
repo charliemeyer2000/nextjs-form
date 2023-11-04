@@ -4,7 +4,7 @@ import SmallTextField from "../../components/SmallTextField/SmallTextField";
 import MultipleChoice from "@/components/MultipleChoice/MultipleChoice";
 import ColoredButton from "@/components/ColoredButton/ColoredButton";
 import BoringButton from "@/components/BoringButton/BoringButton";
-import DropDown from "../../components/Dropdown/dropdown"
+import DropDown from "@/components/DropDown/DropDown";
 // redux
 import {
   removeKVPairInFormQuestions,
