@@ -1,7 +1,6 @@
 import styles from "../../styles/Questions.module.css";
 // components
 import SmallTextField from "../../components/SmallTextField/SmallTextField";
-import MultipleChoice from "@/components/MultipleChoice/MultipleChoice";
 import ColoredButton from "@/components/ColoredButton/ColoredButton";
 import BoringButton from "@/components/BoringButton/BoringButton";
 import DropDown from "@/components/DropDown/DropDown";

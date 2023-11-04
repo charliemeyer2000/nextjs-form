@@ -5,6 +5,10 @@ npm-debug.log*
 
 .next
 
+.swc
+
+.node_modules
+
 # Runtime data
 pids
 *.pid
