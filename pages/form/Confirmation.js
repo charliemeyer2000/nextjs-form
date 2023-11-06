@@ -3,6 +3,7 @@ import styles from "@/styles/Confirmation.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import {
   selectDailySpendingSum,
+  selectDiscordId,
   selectFormQuestions,
 } from "@/slices/formSlice";
 // components
@@ -10,12 +11,29 @@ import BoringButton from "@/components/BoringButton/BoringButton";
 import ColoredButton from "@/components/ColoredButton/ColoredButton";
 // navigation
 import { useRouter } from "next/router";
+import axios from "axios";
+// react
+import { useState } from "react";
 
 export default function Confirmation() {
   const dailySpending = useSelector(selectDailySpendingSum);
   const formQuestions = useSelector(selectFormQuestions);
+  const discordId = useSelector(selectDiscordId);
   const dispatch = useDispatch();
   const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleSubmission = async () => {
+    setIsLoading(true);
+    const res = await axios.post("/api/uploadToDynamo", {
+      formQuestions: formQuestions,
+      dailySpending: dailySpending,
+      discordId: discordId,
+    });
+    console.log(res);
+    setIsLoading(false);
+    router.push("/form/Success");
+  };
 
   return (
     <div className={styles.confirmation}>
@@ -51,9 +69,8 @@ export default function Confirmation() {
         />
         <ColoredButton
           text="Confirm Submission"
-          onClick={() => {
-            router.push("/form/Success");
-          }}
+          onClick={handleSubmission}
+          isLoading={isLoading}
         />
       </div>
     </div>

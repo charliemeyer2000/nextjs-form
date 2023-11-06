@@ -31,8 +31,8 @@ export default function DropDown(props) {
     >
       <h1 className={styles.question}>{question}</h1>
       <div className={styles.options}>
-        {options.map((option) => (
-          <div className={styles.option}>
+        {options.map((option, index) => (
+          <div className={styles.option} key={index}>
             <input
               type="checkbox"
               className={styles.radio}

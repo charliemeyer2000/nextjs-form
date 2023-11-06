@@ -1,8 +1,15 @@
 .button_wrapper {
     width: 100%;
+    position: relative;
     background-color: var(--gradient-blue);
     box-shadow: rgb(0 0 0 / 10%) 0px 0px 10px;
     cursor: pointer;
+    height: 100%;
+}
+.loadingSpinner {
+    position: absolute;
+    top: 0%; /* Add this line */
+    left: 50%; /* Add this line */
 }
 
 .button {
@@ -11,7 +18,15 @@
     border-radius: 0.25rem;
     background-color: var(--blue);
     border: 1px solid transparent;
+}
 
+.greyedOutButton {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    background-color: var(--grey);
+    border: 1px solid transparent;
+    cursor: not-allowed;
 }
 
 .button:hover {

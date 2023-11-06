@@ -1,5 +1,5 @@
 import styles from "@/styles/Success.module.css";
-
+import Link from "next/link";
 export default function Success() {
   return (
     <div className={styles.success}>
@@ -9,7 +9,12 @@ export default function Success() {
         your answers!
       </h1>
       <p className={styles.description}>
-        We will be in touch with you shortly.
+        Check back in the{" "}
+        <Link href="https://discord.gg/dd7RZYJnnt" target="_blank">
+          Discord
+        </Link>{" "}
+        to see your stats on your spending habits & talk about your goals with
+        others!
       </p>
     </div>
   );

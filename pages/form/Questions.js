@@ -69,9 +69,10 @@ export default function Questions() {
           selectedOptions={Object.keys(formQuestions)}
         />
         {Object.keys(formQuestions) &&
-          Object.keys(formQuestions).map((option) => {
+          Object.keys(formQuestions).map((option, index) => {
             return (
               <SmallTextField
+                key={index}
                 question={`How much did you spend on ${option}?`}
                 label={"This should be a number, ex: 12.34"}
                 value={formQuestions[option]}

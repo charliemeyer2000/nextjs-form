@@ -1,5 +1,7 @@
 .button_wrapper {
     width: 100%;
+    height: 100%;
+    margin-bottom: auto;
 
 }
 
@@ -10,6 +12,7 @@
     border: 1px solid var(--blue);
     background-color: var(--white);
     transition: 0.2s ease-in-out;
+    height: 100%;
     
 
 }
