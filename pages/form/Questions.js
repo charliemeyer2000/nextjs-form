@@ -9,10 +9,12 @@ import {
   removeKVPairInFormQuestions,
   selectFormQuestions,
   setKVPairInFormQuestions,
+  setDiscordId,
 } from "@/slices/formSlice";
 import { useDispatch, useSelector } from "react-redux";
 // routing
 import { useRouter } from "next/router";
+import { useSearchParams } from "next/navigation";
 // react
 import { useState } from "react";
 // mui
@@ -24,9 +26,19 @@ export default function Questions() {
   const router = useRouter();
   const [showErrorPopup, setShowErrorPopup] = useState("");
 
-  const goBack = () => {
-    router.push("/form/Intro");
-  };
+  // handling passing in the discordId
+  const params = useSearchParams();
+  const discordId = params.get("discordId");
+  if (typeof window !== "undefined") {
+    const storedDiscordId = localStorage.getItem("discordId");
+    if (storedDiscordId !== discordId && discordId !== null) {
+      localStorage.setItem("discordId", discordId);
+      dispatch(setDiscordId(discordId));
+    } else if (storedDiscordId !== null) {
+      // If discordId from params is null, use the storedDiscordId
+      dispatch(setDiscordId(storedDiscordId));
+    }
+  }
 
   const handleNext = () => {
     // ensure that all questions (if any have been selected) aren't empty.
@@ -55,7 +67,12 @@ export default function Questions() {
   return (
     <div className={styles.questions}>
       <div className={styles.header}>
-        <h1 className={styles.title}>Questions</h1>
+        <h1 className={styles.title}>MoniFlow Daily Form</h1>
+        <p className={styles.description}>
+          Fill out this form to track your daily spending! This will
+          auto-populate in your own sheet, which you can use to track your
+          spending!
+        </p>
         <p className={styles.description}>
           Please select from the dropdown all of the categories that you have
           spent money on in the past month.
@@ -83,7 +100,7 @@ export default function Questions() {
             );
           })}
         <div className={styles.submitWrapper}>
-          <BoringButton text="Back" onClick={goBack} />
+          {/* <BoringButton text="Back" onClick={goBack} /> */}
           <ColoredButton text="Next" onClick={handleNext} />
         </div>
       </div>

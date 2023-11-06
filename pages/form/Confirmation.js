@@ -5,6 +5,7 @@ import {
   selectDailySpendingSum,
   selectDiscordId,
   selectFormQuestions,
+  setDailySpendingSum,
 } from "@/slices/formSlice";
 // components
 import BoringButton from "@/components/BoringButton/BoringButton";
@@ -22,6 +23,10 @@ export default function Confirmation() {
   const dispatch = useDispatch();
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
+
+  dispatch(
+    setDailySpendingSum(Object.values(formQuestions).reduce((a, b) => a + b, 0))
+  );
 
   const handleSubmission = async () => {
     setIsLoading(true);
@@ -48,15 +53,14 @@ export default function Confirmation() {
       <div className={styles.answers}>
         <div className={styles.answer}>
           <h2 className={styles.question}>How much did you spend today?</h2>
-          <p className={styles.response}>{dailySpending}</p>
+          <p className={styles.response}>${dailySpending}</p>
         </div>
-        {/* map through the key-value pairs in formQuestions */}
         {Object.entries(formQuestions).map(([key, value]) => (
           <div className={styles.answer} key={key}>
             <h2
               className={styles.question}
             >{`How much did you spend on ${key}?`}</h2>
-            <p className={styles.response}>{value}</p>
+            <p className={styles.response}>${value}</p>
           </div>
         ))}
       </div>

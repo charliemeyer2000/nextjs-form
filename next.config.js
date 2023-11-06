@@ -6,13 +6,13 @@ const nextConfig = {
     return [
       {
         source: "/form",
-        destination: "/form/Intro",
+        destination: "/form/Questions",
         permanent: true,
       },
       // route the user to /form/Intro when they load into the site
       {
         source: "/",
-        destination: "/form/Intro",
+        destination: "/form/Questions",
         permanent: true,
       }
     ];
