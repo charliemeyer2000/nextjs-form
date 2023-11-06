@@ -43,7 +43,7 @@ export default async (req, res) => {
     console.log(updateResult);
     res.status(200).json(updateResult);
   } catch (e) {
-    console.error(e);
+    console.error(e.message);
     res
       .status(500)
       .json({ message: "An error occurred while updating the item." });
